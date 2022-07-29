@@ -16,10 +16,10 @@ node{
         {
             sh "docker login -u upasanatestdocker -p ${DHPWD}"
         }
-        sh 'docker push vardhanns/phpmysql_app'
+        echo 'docker push vardhanns/phpmysql_app'
         */
-        //docker.withRegistry( 'https://registry.hub.docker.com', 'DockerHubPassword' ) {
-             
+        docker.withRegistry( 'https://registry.hub.docker.com', 'DockerHubPassword', 'docker-hub-credentials' ) {
+             dockerImage.push()
              echo 'sudo docker login -u "beckfee" -p "024161408" docker.io'
              //sh 'sudo docker push beckfee/mysql'
              //sh 'sudo docker push beckfee/job1_web1.0'

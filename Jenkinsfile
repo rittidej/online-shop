@@ -18,7 +18,7 @@ node{
         }
         echo 'docker push vardhanns/phpmysql_app'
         */
-        docker.withRegistry( 'https://registry.hub.docker.com', 'DockerHubPassword', 'docker-hub-credentials' ) {
+        docker.withRegistry( 'registry.docker.io', 'DockerHubPassword', 'docker-hub-credentials' ) {
              dockerImage.push()
              echo 'sudo docker login -u "beckfee" -p "024161408" docker.io'
              //sh 'sudo docker push beckfee/mysql'
@@ -28,3 +28,22 @@ node{
           
     }
 }
+
+
+
+// node {
+
+//   checkout scm
+//   def dockerImage
+
+//   stage('Build image') {
+//     dockerImage = docker.build("username/repository:tag")
+//   }
+
+//   stage('Push image') {
+//     docker.withRegistry('https://registry-1.docker.io/v2/', 'docker-hub-credentials') {
+//       dockerImage.push()
+//     }
+//   }
+
+// }

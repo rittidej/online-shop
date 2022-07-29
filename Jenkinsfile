@@ -37,11 +37,11 @@ node {
   def dockerImage
 
   stage('Build image') {
-    dockerImage = docker.build("username/repository:tag")
+    dockerImage = docker.build("beckfee/sampleonline-shop:sampleonline-shopV1")
   }
 
   stage('Push image') {
-    docker.withRegistry('https://registry-1.docker.io/v2/', 'docker-hub-credentials') {
+    docker.withRegistry('registry.docker.io', 'docker-hub-credentials') {
       dockerImage.push()
     }
   }
